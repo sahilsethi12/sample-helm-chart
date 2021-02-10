@@ -1,4 +1,4 @@
-def repo="https://github.com/sahilsethi12/sample-helm-chart/"
+def repo="https://github.com/sahilsethi12/sample-helm-chart"
 pipeline{
 		agent{
 				label 'helm'
@@ -14,7 +14,7 @@ pipeline{
 				stage("Deploy to Dev") {
             steps {
                 script{
-										openshift.withCluster(){
+			 openshift.withCluster(){
                        
                             sh "helm upgrade --install my-guestbook sahil/guestbook --values dev/values.yaml -n dev --wait"
                         
